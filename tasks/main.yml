@@ -1,0 +1,50 @@
+---
+- name: Check if ANT is already installed
+  become: true
+  stat:
+    path: /opt/ant/bin/ant
+    get_checksum: false
+  register: ant
+
+- name: Download and Extract ANT
+  become: true
+  unarchive:
+    remote_src: true
+    src: "{{ ant_url }}"
+    dest: /opt
+  when: not ant.stat.exists
+
+- name: Link /opt/ant
+  become: true
+  file:
+    src: /opt/apache-ant-{{ ant_version }}
+    dest: /opt/ant
+    state: link
+
+- name: Link /opt/ant/bin/ant to /usr/local/bin
+  become: true
+  file:
+    src: /opt/ant/bin/ant
+    dest: /usr/local/bin/ant
+    state: link
+
+- name: Configure bash files
+  block:
+    - name: Make sure bash files exist
+      become: true
+      file:
+        path: "{{ item }}"
+        state: touch
+      changed_when: false
+      loop:
+        - "~{{ ant_user }}/.bashrc"
+        - "~{{ ant_user }}/.bash_profile"
+    - name: Add ANT_HOME to bashrc and bash_profile
+      become: true
+      lineinfile:
+        path: "{{ item }}"
+        regexp: export ANT_HOME
+        line: export ANT_HOME=/opt/ant
+      loop:
+        - "~{{ ant_user }}/.bashrc"
+        - "~{{ ant_user }}/.bash_profile"

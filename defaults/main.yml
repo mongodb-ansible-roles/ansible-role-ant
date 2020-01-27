@@ -1,0 +1,4 @@
+---
+ant_url: https://s3.amazonaws.com/boxes.10gen.com/build/apache-ant-{{ ant_version }}-bin.zip
+ant_user: ""
+ant_version: 1.10.1

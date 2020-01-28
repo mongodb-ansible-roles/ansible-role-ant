@@ -39,7 +39,7 @@
   become: true
   file:
     src: /opt/apache-ant-{{ ant_version }}
-    dest: /opt/java/ant/
+    dest: /opt/java/ant
     state: link
   when: java_toolchain.stat.exists
 

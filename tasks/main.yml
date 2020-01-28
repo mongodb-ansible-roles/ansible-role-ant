@@ -28,12 +28,20 @@
     dest: /usr/local/bin/ant
     state: link
 
-- name: Link /opt/apache-ant-{{ ant_version }}/bin/ant.bat to /opt/java/ant/bin/ant.bat
+- name: Check if Java toolchain is installed
+  become: true
+  stat:
+    path: /opt/java
+    get_checksum: false
+  register: java_toolchain
+
+- name: Link /opt/apache-ant-{{ ant_version }} to /opt/java/ant
   become: true
   file:
-    src: /opt/apache-ant-{{ ant_version }}/bin/ant.bat
-    dest: /opt/java/ant/bin/ant.bat
+    src: /opt/apache-ant-{{ ant_version }}
+    dest: /opt/java/ant/
     state: link
+  when: java_toolchain.stat.exists
 
 - name: Configure bash files
   block:

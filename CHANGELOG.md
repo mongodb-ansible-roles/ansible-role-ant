@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/mongodb-ansible-roles/ansible-role-ant/compare/v1.0.2...v1.0.3) (2020-01-28)
+
+
+### Bug Fixes
+
+* symlinks cannot have / at the end of filename ([ad1bc18](https://github.com/mongodb-ansible-roles/ansible-role-ant/commit/ad1bc18769a026b44abaf52adf2bf03e5e349d73))
+
 ## [1.0.2](https://github.com/mongodb-ansible-roles/ansible-role-ant/compare/v1.0.1...v1.0.2) (2020-01-28)
 
 

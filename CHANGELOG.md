@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/mongodb-ansible-roles/ansible-role-ant/compare/v1.0.1...v1.0.2) (2020-01-28)
+
+
+### Bug Fixes
+
+* Added conditional for java toolchain ([5969243](https://github.com/mongodb-ansible-roles/ansible-role-ant/commit/5969243ba67067ba767c06c3bd19e33569b53cb9))
+
 ## [1.0.1](https://github.com/mongodb-ansible-roles/ansible-role-ant/compare/v1.0.0...v1.0.1) (2020-01-28)
 
 

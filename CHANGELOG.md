@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/mongodb-ansible-roles/ansible-role-ant/compare/v1.0.0...v1.0.1) (2020-01-28)
+
+
+### Bug Fixes
+
+* Added missing link to ant in java toolchain ([c160751](https://github.com/mongodb-ansible-roles/ansible-role-ant/commit/c1607511305a6acc78a56a2fde7cac74c15fca06))
+
 # 1.0.0 (2020-01-27)
 
 

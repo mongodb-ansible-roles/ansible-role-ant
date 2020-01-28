@@ -28,6 +28,13 @@
     dest: /usr/local/bin/ant
     state: link
 
+- name: Link /opt/apache-ant-{{ ant_version }}/bin/ant.bat to /opt/java/ant/bin/ant.bat
+  become: true
+  file:
+    src: /opt/apache-ant-{{ ant_version }}/bin/ant.bat
+    dest: /opt/java/ant/bin/ant.bat
+    state: link
+
 - name: Configure bash files
   block:
     - name: Make sure bash files exist
